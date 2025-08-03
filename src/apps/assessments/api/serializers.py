@@ -4,18 +4,10 @@ from apps.assessments.models import Question, Quizz, CustomUserAnswer
 
 
 class QuestionSerializer(serializers.ModelSerializer):
-    user_answer = serializers.SerializerMethodField()
-
-    def get_user_answer(self, obj):
-        user = self.context['user']
-        attempt = self.context['attempt']
-        answer = obj.user_answers.filter(user=user, attempt=attempt).first()
-        return CustomUserAnswerSerializer(answer).data if answer else None
-
 
     class Meta:
         model = Question
-        fields = ['item', 'user_answer']
+        fields = ['item']
 
 
 class QuizzSerializer(serializers.ModelSerializer):
@@ -72,7 +64,6 @@ class QuestionWithUserAnswerSerializer(serializers.ModelSerializer):
         answer = CustomUserAnswer.objects.filter(user=user, question=obj, attempt=attempt).first()
         if answer is None:
             return None
-
         return CustomUserAnswerSerializer(answer).data
 
 

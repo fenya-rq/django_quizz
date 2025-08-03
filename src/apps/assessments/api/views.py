@@ -1,7 +1,6 @@
 from datetime import datetime
 
 from django.db.models import Max
-from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.status import HTTP_404_NOT_FOUND
@@ -19,7 +18,6 @@ class QuizzViewSet(ModelViewSet):
     serializer_class = QuizzSerializer
     queryset = Quizz.objects.all()
 
-    @action(detail=True, methods=['get'], url_path='questions')
     def quizz_question_list(self, request, pk=None):
         quizz = self.get_object()
         sr_data = self.get_serializer(quizz).data
@@ -45,7 +43,6 @@ class CustomUserQuizzViewSet(ModelViewSet):
             return CreateCustomUserAnswer
         return super().get_serializer_class()
 
-    @action(detail=True, methods=['post'], url_path='submit-answer')
     def answer_to_question(self, request, pk=None):
         user = request.user
 
@@ -75,7 +72,6 @@ class CustomUserQuizzViewSet(ModelViewSet):
         serializer.save()
         return Response(serializer.data, status=201)
 
-    @action(detail=True, methods=['get'], url_path='resume-quizz')
     def resume_quizz(self, request, pk=None):
         user = request.user
 
@@ -90,7 +86,6 @@ class CustomUserQuizzViewSet(ModelViewSet):
         serializer = self.get_serializer(progress.quizz, context={'user': request.user, 'attempt': last_attempt})
         return Response(serializer.data)
 
-    @action(detail=True, methods=['get'], url_path='finish-quizz')
     def finish_quizz(self, request, pk=None):
         user = request.user
 
