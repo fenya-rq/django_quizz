@@ -25,7 +25,7 @@
     "fields": {
       "quizz": 1,
       "item": "Which planet is known as the Red Planet?",
-      "item_type": "single",
+      "item_type": "text",
       "correct_answer": "Mars"
     }
   },
