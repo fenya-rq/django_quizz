@@ -1,0 +1,23 @@
+[
+  {
+    "model": "assessments.quizz",
+    "pk": 1,
+    "fields": {
+      "name": "General Knowledge Quiz"
+    }
+  },
+  {
+    "model": "assessments.quizz",
+    "pk": 2,
+    "fields": {
+      "name": "Science Quiz"
+    }
+  },
+  {
+    "model": "assessments.quizz",
+    "pk": 3,
+    "fields": {
+      "name": "History Quiz"
+    }
+  }
+]
