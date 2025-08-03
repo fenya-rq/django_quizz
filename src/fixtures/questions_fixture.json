@@ -1,0 +1,154 @@
+[
+  {
+    "model": "assessments.question",
+    "pk": 1,
+    "fields": {
+      "quizz": 1,
+      "item": "What is the capital of France?",
+      "item_type": "text",
+      "correct_answer": "Paris"
+    }
+  },
+  {
+    "model": "assessments.question",
+    "pk": 2,
+    "fields": {
+      "quizz": 1,
+      "item": "How many continents are there?",
+      "item_type": "text",
+      "correct_answer": "7"
+    }
+  },
+  {
+    "model": "assessments.question",
+    "pk": 3,
+    "fields": {
+      "quizz": 1,
+      "item": "Which planet is known as the Red Planet?",
+      "item_type": "single",
+      "correct_answer": "Mars"
+    }
+  },
+  {
+    "model": "assessments.question",
+    "pk": 4,
+    "fields": {
+      "quizz": 1,
+      "item": "What color are bananas?",
+      "item_type": "text",
+      "correct_answer": "Yellow"
+    }
+  },
+  {
+    "model": "assessments.question",
+    "pk": 5,
+    "fields": {
+      "quizz": 1,
+      "item": "What is 2 + 2?",
+      "item_type": "text",
+      "correct_answer": "4"
+    }
+  },
+
+  {
+    "model": "assessments.question",
+    "pk": 6,
+    "fields": {
+      "quizz": 2,
+      "item": "What is H2O commonly known as?",
+      "item_type": "text",
+      "correct_answer": "Water"
+    }
+  },
+  {
+    "model": "assessments.question",
+    "pk": 7,
+    "fields": {
+      "quizz": 2,
+      "item": "Which gas do plants absorb from the atmosphere?",
+      "item_type": "text",
+      "correct_answer": "Carbon dioxide"
+    }
+  },
+  {
+    "model": "assessments.question",
+    "pk": 8,
+    "fields": {
+      "quizz": 2,
+      "item": "Which organ pumps blood through the body?",
+      "item_type": "text",
+      "correct_answer": "Heart"
+    }
+  },
+  {
+    "model": "assessments.question",
+    "pk": 9,
+    "fields": {
+      "quizz": 2,
+      "item": "What is the chemical symbol for gold?",
+      "item_type": "text",
+      "correct_answer": "Au"
+    }
+  },
+  {
+    "model": "assessments.question",
+    "pk": 10,
+    "fields": {
+      "quizz": 2,
+      "item": "What force pulls objects toward Earth?",
+      "item_type": "text",
+      "correct_answer": "Gravity"
+    }
+  },
+
+  {
+    "model": "assessments.question",
+    "pk": 11,
+    "fields": {
+      "quizz": 3,
+      "item": "Who was the first President of the USA?",
+      "item_type": "text",
+      "correct_answer": "George Washington"
+    }
+  },
+  {
+    "model": "assessments.question",
+    "pk": 12,
+    "fields": {
+      "quizz": 3,
+      "item": "In which year did World War II end?",
+      "item_type": "text",
+      "correct_answer": "1945"
+    }
+  },
+  {
+    "model": "assessments.question",
+    "pk": 13,
+    "fields": {
+      "quizz": 3,
+      "item": "What wall divided Berlin during the Cold War?",
+      "item_type": "text",
+      "correct_answer": "Berlin Wall"
+    }
+  },
+  {
+    "model": "assessments.question",
+    "pk": 14,
+    "fields": {
+      "quizz": 3,
+      "item": "Who discovered America?",
+      "item_type": "text",
+      "correct_answer": "Christopher Columbus"
+    }
+  },
+  {
+    "model": "assessments.question",
+    "pk": 15,
+    "fields": {
+      "quizz": 3,
+      "item": "What ancient civilization built the pyramids?",
+      "item_type": "text",
+      "correct_answer": "Egyptians"
+    }
+  }
+]
