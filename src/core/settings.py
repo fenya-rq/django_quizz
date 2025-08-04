@@ -8,15 +8,23 @@ env = environ.Env(
     DJANGO_SUPERUSER_USERNAME=(str, 'admin'),
     DJANGO_SUPERUSER_EMAIL=(str, 'admin@example.com'),
     DJANGO_SUPERUSER_PASSWORD=(str, 'root'),
+    # Postgres
+    PGUSER=(str, 'postgres'),
+    PGDATABASE=(str, 'postgres'),
+    POSTGRES_PASSWORD=(str, 'postgres'),
+    PG_HOST=(str, 'localhost'),
+    PG_PORT=(int, 5432),
 )
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+environ.Env.read_env(BASE_DIR / '.env')
 
 SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -25,8 +33,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'drf_spectacular',
+    'rest_framework',
+    # created apps
     'apps.user',
+    'apps.assessments',
 ]
 
 MIDDLEWARE = [
@@ -38,6 +49,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+AUTH_USER_MODEL = 'user.CustomUser'
 
 ROOT_URLCONF = 'core.urls'
 
@@ -58,20 +75,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('PGDATABASE'),
+        'USER': env('PGUSER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': env('PG_HOST'),
+        'PORT': env('PG_PORT'),
     }
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -88,10 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -100,13 +109,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
 STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
