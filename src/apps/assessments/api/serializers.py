@@ -39,6 +39,14 @@ class CreateCustomUserAnswer(CustomUserAnswerSerializer):
         if not Question.objects.filter(id=question_id, quizz_id=quizz_id).exists():
             raise serializers.ValidationError('The question does not belong to this quiz.')
 
+        if CustomUserAnswer.objects.filter(
+                user=self.context['user'],
+                attempt=self.context['attempt'],
+                question_id=question_id,
+                quizz_id=quizz_id,
+        ).exists():
+            raise serializers.ValidationError('The answer to this question already exists.')
+
         return attrs
 
     def create(self, validated_data):

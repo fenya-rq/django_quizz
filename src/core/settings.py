@@ -26,6 +26,12 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8080', 'http://127.0.0.1:8080']
+
+DJANGO_SUPERUSER_USERNAME = env('DJANGO_SUPERUSER_USERNAME')
+DJANGO_SUPERUSER_EMAIL = env('DJANGO_SUPERUSER_EMAIL')
+DJANGO_SUPERUSER_PASSWORD = env('DJANGO_SUPERUSER_PASSWORD')
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -109,6 +115,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
